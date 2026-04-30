@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xinruisha — Photo</title>
+  <meta name="description" content="Xinruisha · Photo / 心瑞莎影像作品集" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://img.ggjj.app" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=Space+Grotesk:wght@300;400;500;700&family=Noto+Serif+SC:wght@300;400;500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header" data-header>
+    <a href="#/" class="brand">
+      <span class="brand__en">XINRUISHA</span>
+    </a>
+    <nav class="site-nav">
+      <a href="#/" data-route="/" data-i18n="nav_home">Home</a>
+      <a href="#/index" data-route="/index" data-i18n="nav_index">Index</a>
+      <a href="#/about" data-route="/about" data-i18n="nav_about">About</a>
+    </nav>
+    <div class="site-meta">
+      <button class="sound-toggle" type="button" data-sound-toggle aria-label="Toggle sound" title="Sound on/off">
+        <span class="sound-toggle__icon" aria-hidden="true">●))</span>
+      </button>
+      <span data-clock>—</span>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HOME VIEW ============ -->
+    <div class="view view--home" data-view="home">
+
+      <!-- Cover: image left + black accent right -->
+      <section class="cover">
+        <div class="cover__split">
+          <figure class="cover__photo">
+            <div class="placeholder placeholder--cover" aria-label="Cover image placeholder">
+              <span>COVER</span>
+            </div>
+          </figure>
+          <aside class="cover__accent">
+            <h1 class="cover__title">
+              <span class="cover__title-line" data-i18n="cover_title_1"></span>
+              <span class="cover__title-line cover__title-line--italic" data-i18n="cover_title_2"></span>
+              <span class="cover__title-line" data-i18n="cover_title_3"></span>
+            </h1>
+            <div class="cover__accent-foot">
+              <p data-i18n="cover_byline"></p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Index: horizontal carousel of project covers -->
+      <section id="index" class="index-section">
+        <div class="index-section__rule">
+          <span data-i18n="index_heading"></span>
+          <span data-i18n="index_sub"></span>
+        </div>
+
+        <div class="carousel-wrap">
+          <button class="carousel-arrow carousel-arrow--prev" type="button" data-carousel-prev aria-label="Previous">←</button>
+          <div class="carousel" data-carousel role="region" aria-label="Project covers"></div>
+          <button class="carousel-arrow carousel-arrow--next" type="button" data-carousel-next aria-label="Next">→</button>
+        </div>
+      </section>
+
+      <!-- Featured videos (between index & about) -->
+      <section id="video" class="video-section">
+        <div class="video-section__rule"><span>FEATURED VIDEOS</span></div>
+        <div class="video-strip" data-videos></div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="about">
+        <div class="about__rule">
+          <span data-i18n="about_heading"></span>
+        </div>
+        <div class="about__grid"></div>
+      </section>
+    </div>
+
+    <!-- ============ DETAIL VIEW ============ -->
+    <div class="view view--detail" data-view="detail" hidden>
+      <nav class="detail__nav">
+        <a href="#/index" class="detail__back" data-route="/index">
+          <span aria-hidden="true">←</span>
+          <span data-i18n="back_to_index">Back to Index</span>
+        </a>
+        <ol class="detail__nav-list" data-detail-nav></ol>
+        <div class="detail__nav-arrows">
+          <button type="button" data-detail-prev aria-label="Previous project">←</button>
+          <button type="button" data-detail-next aria-label="Next project">→</button>
+        </div>
+      </nav>
+      <article class="detail" data-detail-content></article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__rule">
+      <span data-i18n="footer_copy"></span>
+      <span>colophon — v0.3</span>
+    </div>
+  </footer>
+
+  <script src="/assets/js/app.js" type="module"></script>
+</body>
+</html>

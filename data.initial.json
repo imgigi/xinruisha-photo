@@ -1,0 +1,161 @@
+{
+  "site": {
+    "brandCn": "心瑞莎",
+    "brandEn": "XINRUISHA"
+  },
+  "videos": [],
+  "cover": {
+    "photo": null,
+    "title1":  { "en": "Photographs,",         "cn": "在静默" },
+    "title2":  { "en": "in between",           "cn": "与喧嚣" },
+    "title3":  { "en": "silence & noise.",     "cn": "之间。" },
+    "byline":  {
+      "en": "A monograph of staged, performative and documentary photography by Xinruisha — works circling family, body, language and the spaces in between.",
+      "cn": "心瑞莎的影像合集——围绕家庭、身体、语言以及它们之间空隙展开的摆拍、表演与日常影像。"
+    }
+  },
+  "projects": [
+    {
+      "id": "for-your-own-good", "no": "01", "year": "2024",
+      "nameEn": "For Your Own Good", "nameCn": "为你好",
+      "medium": { "en": "Photography · Series", "cn": "摄影 · 系列" },
+      "en": "This series explores the relationship between mother and daughter, focusing on the blurred line between care and control. The phrase \"for your own good\" is often used as an expression of protection, but it can also carry pressure and expectation. Through staged images and quiet gestures, the work reflects on how love can feel both supportive and restrictive at the same time. Rather than showing direct conflict, it focuses on subtle moments where emotions are present but not fully expressed.",
+      "cn": "本系列围绕母女关系展开，关注关爱与控制之间模糊的界限。\"为你好\"常被视为一种保护性的表达，但其中也可能包含压力与期待。通过摆拍影像与克制的肢体语言，作品呈现出爱如何在支持与束缚之间同时存在。它并不直接展现冲突，而是聚焦于那些情绪真实存在却未被完全表达的细微时刻。",
+      "cover": null,
+      "images": [
+        {"key":null,"w":3,"h":4},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":2},{"key":null,"w":3,"h":4},{"key":null,"w":4,"h":5},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":2},{"key":null,"w":3,"h":4},{"key":null,"w":4,"h":5},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":4},{"key":null,"w":1,"h":1},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":2},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":4}
+      ]
+    },
+    {
+      "id": "rooted-together", "no": "02", "year": "2024",
+      "nameEn": "Rooted Together", "nameCn": "同根共生",
+      "medium": { "en": "Photography · Composite", "cn": "摄影 · 合成" },
+      "en": "Human limbs and plant roots visually intertwine, suggesting the common origin and continuity of all life. Through photography and post-processing, a space both real and surreal emerges. This work is not just a visual statement — it's an emotional invitation to reflect on the inseparable bond between humans and nature, and to step beyond an anthropocentric view.",
+      "cn": "将人的肢体与植物的根系视觉交织，暗示生命共同的起源与延续。通过摄影与后期，创造出既真实又超现实的影像。这不是简单的视觉呈现，而是一次情感层面的深层探索——邀请观众反思：人与自然，本就不可分割。",
+      "cover": null,
+      "images": [{"key":null,"w":1,"h":1},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":4},{"key":null,"w":1,"h":1}]
+    },
+    {
+      "id": "in-between", "no": "03", "year": "2024",
+      "nameEn": "In-Between", "nameCn": "夹缝里的我",
+      "medium": { "en": "Photography · Self-portrait", "cn": "摄影 · 自拍像" },
+      "en": "My first year abroad — I felt like being locked inside a cardboard box. Cut off from the home I knew, not yet connected to the world around me. Color speaks of my desire to break stereotypes and embrace the unknown; black and white carries loneliness, confinement, and the fragile shape of hope. The two alternate, like my identity swaying in a foreign land. But this very process — from color to black and white, from inside the box to outside, from limits to release.",
+      "cn": "第一年留学，像被装进一个纸箱——隔绝了熟悉的现实，却还没走进全新的世界。彩色，是我想打破刻板印象、拥抱丰富未知的渴望；黑白，是孤独与束缚，也是希望在暗处凝结的形状。两种色调交替出现，就像我在异国他乡的身份认同里来回摇摆。但正是这个过程——从彩色到黑白、从箱里到箱外、从限制到自由。",
+      "cover": null,
+      "images": [{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":2},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":4},{"key":null,"w":4,"h":5},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":2},{"key":null,"w":3,"h":4}]
+    },
+    {
+      "id": "the-coded-human", "no": "04", "year": "2024",
+      "nameEn": "The Coded Human", "nameCn": "条码之身",
+      "medium": { "en": "Performance · Photography", "cn": "表演 · 摄影" },
+      "en": "Barcodes are no longer just for products. When placed on the body, the person becomes scannable — priced, consumed, commodified. Through performance photography, this work presents the state of the \"commodified human\" with absurd, humorous, and sharp imagery: alienation, loss of identity, invisible manipulation. Have we already, without noticing, become carriers of symbols in the wave of consumerism?",
+      "cn": "条形码，不再是商品的专属。当它贴在身体上，人也就成了可被扫描、定价、消费的符号。通过表演摄影，以荒诞而锐利的方式呈现\"商品人\"的存在状态——异化、身份丧失、被无形之手操纵。我们是否早已在消费浪潮中，不知不觉成为符号的载体？",
+      "cover": null,
+      "images": [{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":2},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":2},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":2}]
+    },
+    {
+      "id": "fervors-crucible", "no": "05", "year": "2025",
+      "nameEn": "Fervor's Crucible", "nameCn": "炽炼",
+      "medium": { "en": "Photography · Studio", "cn": "摄影 · 工作室" },
+      "en": "Fire destroys, but it also creates and transforms. It forges metal, sparks chemical change, and on a deeper level, it cleanses the spirit and fuels the heat between lovers. This piece explores fire's double nature — creation and change — where matter meets emotion, and an undying flame is born.",
+      "cn": "火，既是物质的熔炉，也是精神的洗礼。它锻造金属、催化变化，亦象征心灵的净化与恋人间炽热的激情。这件作品探寻火的双重力量——创造与转变，在物质与情感的融合处，燃起不灭的光焰。",
+      "cover": null,
+      "images": [{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":2},{"key":null,"w":3,"h":4}]
+    },
+    {
+      "id": "scorching-words", "no": "06", "year": "2025",
+      "nameEn": "Scorching Words", "nameCn": "灼语",
+      "medium": { "en": "Photography · Conceptual", "cn": "摄影 · 观念" },
+      "en": "Fire burns and destroys — danger, ruin. Words cut without drawing blood. A soft tongue can break bones and muscles. Sometimes words hurt more than violence. Not the shape, but every word from the heart can shatter a person in an instant. Love must be spoken well.",
+      "cn": "火能焚毁一切，象征危险与毁灭。而语言，如无血之刃，柔软却足以割骨剜心。有时言语的伤害比暴力更深——爱若不善表达，一字一句便能瞬间将人击碎。",
+      "cover": null,
+      "images": [{"key":null,"w":3,"h":2},{"key":null,"w":3,"h":2}]
+    },
+    {
+      "id": "the-one-who-shines", "no": "07", "year": "2025",
+      "nameEn": "The One Who Shines", "nameCn": "追光的人",
+      "medium": { "en": "Photography · Portrait", "cn": "摄影 · 人像" },
+      "en": "Teenagers should have dreams — not just in their hearts, but in their actions. Dreams don't shine. You do. You are the one chasing your dreams. That's where the light comes from.",
+      "cn": "少年该有梦想——不只在心里，更在脚下一步步的行动里。梦想本身不会发光，发光的是追逐梦想的你。",
+      "cover": null,
+      "images": [{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":2}]
+    },
+    {
+      "id": "milky-way-dream", "no": "08", "year": "2025",
+      "nameEn": "Milky Way Dream", "nameCn": "星河入梦",
+      "medium": { "en": "Photography · Night", "cn": "摄影 · 夜色" },
+      "en": "The moon hangs like a disk in the dark sky, casting its light on everything. A beautiful and quiet night — tender moonlight, bright stars. Walking along the Milky Way into your dreams. Stars fill the pockets. Romance stays alive. May this moment last forever.",
+      "cn": "月如银盘，悬于暗夜，光洒万物。那是一个美丽而安静的夜晚——月光温柔，星辰明亮。沿着银河，走入你的梦境。星星装满口袋，浪漫永远鲜活。这一刻，愿它成为永恒。",
+      "cover": null,
+      "images": [{"key":null,"w":16,"h":9},{"key":null,"w":3,"h":2},{"key":null,"w":3,"h":2},{"key":null,"w":16,"h":9},{"key":null,"w":3,"h":2}]
+    },
+    {
+      "id": "cheers-to-your-eyes", "no": "09", "year": "2025",
+      "nameEn": "Cheers to Your Eyes", "nameCn": "杯中异见",
+      "medium": { "en": "Photography · Still life", "cn": "摄影 · 静物" },
+      "en": "Through a cup, the world enters a mysterious parallel space — strange colors, blurred reflections, twisted light. Ordinary things become upside down, broken, stretched, and wonderfully strange. When I see her this way — what do I look like from her side?",
+      "cn": "透过一只杯子，世界进入神秘的平行空间。光影折射，空间模糊而失真。平凡的物品变得颠倒、扭曲、破碎、拉伸——却因此有了异常有趣的变化。当我这样看她时，从她的眼里看过来，我又是什么样子呢？",
+      "cover": null,
+      "images": [{"key":null,"w":1,"h":1},{"key":null,"w":3,"h":4}]
+    },
+    {
+      "id": "true-self", "no": "10", "year": "2025",
+      "nameEn": "True Self, My Own Light", "nameCn": "真我自耀",
+      "medium": { "en": "Photography · Portrait", "cn": "摄影 · 人像" },
+      "en": "Look at heaven and earth, see all beings — and always stay true. I do my truth, no twist, no pretense. That confidence? It sparks from within. It's your own shine.",
+      "cn": "仰望天地，俯观众生，不变的是一条底线——守真。我以我的真实行事，不修饰，不背离。那份自信，是自己从心底点亮的光。",
+      "cover": null,
+      "images": [{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":2},{"key":null,"w":3,"h":4},{"key":null,"w":4,"h":5},{"key":null,"w":3,"h":4}]
+    },
+    {
+      "id": "once-we-had", "no": "11", "year": "2025",
+      "nameEn": "Once, We Had", "nameCn": "曾有一刻",
+      "medium": { "en": "Photography · Series", "cn": "摄影 · 系列" },
+      "en": "Time slips away — a wisp of spring, a trace of fragrance. Only a pale face and helpless waiting remain. Memory runs like sand, everything bursts in the passing. Flowers fade, people age, love grows dim. I know the road is long and people scatter. But at least we had it once — didn't we?",
+      "cn": "时光流走，只剩苍白与等待。记忆如沙，一切都在流逝中爆发。花终会谢，人终会老，爱终会淡。明知路远人散，但至少——我们曾经拥有过，不是吗？",
+      "cover": null,
+      "images": [{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":4}]
+    },
+    {
+      "id": "light-in-the-dark", "no": "12", "year": "2025",
+      "nameEn": "Light in the Dark", "nameCn": "暗处生光",
+      "medium": { "en": "Photography · Series", "cn": "摄影 · 系列" },
+      "en": "Don't wither my sunflowers — even in the dark. Hiding in hell, still looking up to the divine. Let light break through the shadows, wash away the dust with a rain of petals, and walk step by step toward hope. I have seen darkness and pain, yet I still believe in simplicity and beauty. Searching for light in the darkness — that is the meaning of life. So please, go all the way through thorns and thorns toward your own glory.",
+      "cn": "即便在黑暗里，也别让我的向日葵枯萎。躲在地狱，仍抬头望向神明。愿光穿透暗处，照亮散落的角落。用灵魂换一场花雨，洗净满身泥泞，一步步走向希望。见过世间的黑暗与痛楚，却依然相信纯真与美好。在暗处寻光，正是生命的意义。请务必穿过荆棘，走向属于自己的荣光。",
+      "cover": null,
+      "images": [{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":4},{"key":null,"w":3,"h":2}]
+    },
+    {
+      "id": "free-as-i-am", "no": "13", "year": "2025",
+      "nameEn": "Free as I Am", "nameCn": "自在飞",
+      "medium": { "en": "Photography · Portrait", "cn": "摄影 · 人像" },
+      "en": "I'm a free bird. No cage, no set path — just the moment I decide to fly. That's what I want.",
+      "cn": "我是一只自由的鸟。没有笼子，没有方向——只有想飞的那一刻。这就是我想要的。",
+      "cover": null,
+      "images": [{"key":null,"w":3,"h":2},{"key":null,"w":3,"h":4}]
+    }
+  ],
+  "about": {
+    "portrait": null,
+    "lede": {
+      "en": "Xinruisha (b. 2003, China) is a photographer working between staged image-making, performance and quiet documentary. Her practice maps the porous boundaries between care and control, body and barcode, language and silence.",
+      "cn": "心瑞莎，2003 年生于中国，是一位游走于摆拍、表演与安静纪实之间的摄影师。她的实践绘制着那些松动的边界——关爱与控制、身体与条码、语言与沉默。"
+    },
+    "bio": {
+      "en": [
+        "She currently works between Singapore and Shanghai. Her ongoing practice circles around family relationships, embodied experience, and the ways meaning erodes in cross-cultural settings.",
+        "This monograph \"Photographs, in between silence & noise\" gathers fourteen interconnected projects, developed as her graduation thesis."
+      ],
+      "cn": [
+        "目前在新加坡与上海两地往返工作。长期围绕家庭关系、身体经验，以及跨文化语境下语言失落的方式展开创作。",
+        "本作品集《在静默与喧嚣之间》收录十四个互相牵连的项目，作为毕业论文的视觉主体。"
+      ]
+    },
+    "contact": {
+      "email":     "hello@xinruisha.com",
+      "studio":    { "en": "Singapore · Shanghai", "cn": "新加坡 · 上海" },
+      "instagram": "@xinruisha",
+      "wechat":    ""
+    }
+  }
+}

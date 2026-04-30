@@ -1,0 +1,24 @@
+# Cloudflare Pages 配置
+# 本地：npm run dev — 用 --kv DATA --r2 IMAGES 自动模拟
+# 生产：上线前到 Cloudflare Dashboard → Pages → Settings → Functions
+#       绑定真实的 KV namespace + R2 bucket（与下方 binding 名一致即可）
+
+name = "xinruisha-photo"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "public"
+
+[vars]
+SITE_ID = "xinruisha"
+IMG_BASE_URL = "https://img.ggjj.app"   # 共享 ggjj 图片域名（cdn-cgi/image 加速走这个 zone）
+MAX_IMAGES = "200"                       # 总量 200 张硬上限（撞顶后 upload 返回 413）
+
+# KV：管理员先在 Cloudflare 控制台新建 namespace（建议名 xinruisha-data），
+# 再把生成的 id 填到这里
+[[kv_namespaces]]
+binding = "DATA"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+
+# R2：与 tanyang/vidverian 共享桶，前缀 xinruisha/ 自动隔离
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "ggjj-assets"

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>后台 · Xinruisha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/admin.css" />
+</head>
+<body>
+  <!-- ============ LOGIN ============ -->
+  <div id="login" class="login">
+    <form class="login__form" data-login-form>
+      <h1>Xinruisha · 后台</h1>
+      <label>
+        <span>密码</span>
+        <input type="password" name="password" autocomplete="current-password" required autofocus />
+      </label>
+      <button type="submit">进入</button>
+      <p class="login__error" data-login-error hidden></p>
+    </form>
+  </div>
+
+  <!-- ============ ADMIN APP ============ -->
+  <div id="app" hidden>
+    <aside class="sidebar">
+      <h1 class="sidebar__brand">Xinruisha<br/><span>后台</span></h1>
+      <nav class="sidebar__nav" data-nav>
+        <a href="#settings" data-section="settings">站点设置</a>
+        <a href="#cover"    data-section="cover">封面</a>
+        <a href="#video"    data-section="video">视频</a>
+        <a href="#projects" data-section="projects">项目</a>
+        <a href="#about"    data-section="about">关于</a>
+      </nav>
+      <div class="sidebar__foot">
+        <a href="/" target="_blank" class="sidebar__foot-link">→ 看前台</a>
+        <button type="button" data-logout>退出</button>
+      </div>
+    </aside>
+
+    <main class="content" data-content>
+      <p class="loading">加载中…</p>
+    </main>
+
+    <footer class="savebar">
+      <span class="savebar__status" data-status>—</span>
+      <button type="button" class="savebar__save" data-save>保存全部修改</button>
+    </footer>
+  </div>
+
+  <script src="/assets/js/admin.js" type="module"></script>
+</body>
+</html>
