@@ -636,19 +636,20 @@ function aboutHtml(a) {
 
 /* ----- 8. Detail (magazine collage) ------------------------------------- */
 
-/* Decide grid spans for a 12-col layout based on aspect ratio + index.
-   First image is hero (larger). Subsequent images get 3-6 col widths
-   depending on whether they're landscape, square, or portrait. */
+/* How wide (in 12-col units) should each image be?
+   We DO NOT set a row span — the row height comes from each <img>'s
+   own aspect-ratio so its true proportions are preserved (no cropping). */
 function spansFor(r, i) {
   if (i === 0) {
-    if (r > 1.25)  return { cols: 8, rows: 6 };
-    if (r > 0.95)  return { cols: 6, rows: 6 };
-    return                { cols: 5, rows: 8 };
+    /* hero: bigger */
+    if (r > 1.25) return 8;
+    if (r > 0.95) return 7;
+    return 5;
   }
-  if (r > 1.35)    return { cols: 6, rows: 4 };
-  if (r > 0.95)    return { cols: 4, rows: 4 };
-  if (r > 0.7)     return { cols: 3, rows: 5 };
-  return                  { cols: 3, rows: 6 };
+  if (r > 1.35) return 6;   /* wide landscape */
+  if (r > 0.95) return 4;   /* square-ish      */
+  if (r > 0.7)  return 4;   /* portrait        */
+  return 3;                  /* tall portrait   */
 }
 
 function magazineGridHtml(images) {
@@ -656,8 +657,7 @@ function magazineGridHtml(images) {
   const items = [];
   images.forEach((img, i) => {
     const w = img.w || 3, h = img.h || 4;
-    const r = w / h;
-    const { cols, rows } = spansFor(r, i);
+    const cols = spansFor(w / h, i);
     const phClass = img.url ? 'ph ph--has-image' : 'ph';
     const phInner = img.url ? imgTag(img.url, {
       widths: [600, 900, 1200, 1800],
@@ -666,11 +666,11 @@ function magazineGridHtml(images) {
     items.push(`<div class="${phClass}"
       data-label="${String(i + 1).padStart(2, '0')}"
       data-ratio="${w}:${h}"
-      style="grid-column: span ${cols}; grid-row: span ${rows}; aspect-ratio: ${w}/${h};">${phInner}</div>`);
-    /* sprinkle a small black square every 4th image, breaks the rhythm */
+      style="grid-column: span ${cols}; aspect-ratio: ${w}/${h};">${phInner}</div>`);
+    /* a small black square every 4th image, just an editorial accent */
     if (i > 0 && i % 4 === 0 && i < images.length - 1) {
       items.push(`<div class="detail__deco" aria-hidden="true"
-        style="grid-column: span 1; grid-row: span 1;"></div>`);
+        style="grid-column: span 1;"></div>`);
     }
   });
   return items.join('');

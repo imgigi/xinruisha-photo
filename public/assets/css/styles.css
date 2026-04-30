@@ -748,19 +748,25 @@ button { font-family: inherit; }
   font-variant-numeric: tabular-nums;
 }
 
-/* ---- collage grid (the magazine layout) ---- */
+/* ---- collage grid (the magazine layout) ----
+   Only the column span is fixed. Row height comes from each image's
+   inline aspect-ratio, so the image is rendered at its true ratio with
+   ZERO cropping. Items inside the same row align to the top; a slightly
+   shorter image leaves visible whitespace below it — that's the price of
+   "keep original ratio" and it's the editorial / magazine look. */
 .detail__grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-auto-flow: dense;
-  grid-auto-rows: clamp(50px, 6.5vw, 80px);
+  grid-auto-rows: auto;
+  align-items: start;
   gap: clamp(0.6rem, 1.2vw, 1rem);
   position: relative;
 }
 .detail__grid .ph {
   width: 100%;
-  height: 100%;
+  height: auto;
   min-height: 0;
+  /* aspect-ratio inline → height = width × (h/w), kept exactly */
 }
 /* deco square (small black squares as editorial accents) */
 .detail__deco {
@@ -768,7 +774,7 @@ button { font-family: inherit; }
   align-self: center;
   justify-self: center;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1;
   max-width: 28px;
   max-height: 28px;
 }
