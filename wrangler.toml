@@ -16,7 +16,7 @@ MAX_IMAGES = "200"                       # 总量 200 张硬上限（撞顶后 u
 # 再把生成的 id 填到这里
 [[kv_namespaces]]
 binding = "DATA"
-id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+id = "16cb95524fec47d4bf84357bc49ce657"
 
 # R2：与 tanyang/vidverian 共享桶，前缀 xinruisha/ 自动隔离
 [[r2_buckets]]
