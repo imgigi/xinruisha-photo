@@ -346,8 +346,11 @@ function applyStaticI18n() {
 }
 
 /* ----- 4.5 Interactive cover title -------------------------------------- */
-/* Split each title line into per-glyph spans: staggered rise on entrance,
-   and (pointer devices only) a magnetic lift as the cursor passes over. */
+/* Each line → word wrappers (so a word never splits across lines) → per
+   letter .ch spans. Letters drop in & bounce-settle (CSS @keyframes chDrop,
+   ordered by --ci); last line enlarged, rest recede; "&" lies on its side
+   in red; one extra red accent letter. Hover is pure CSS — every letter
+   reacts on its own. Re-runs safely (renderAll fires twice). */
 function enhanceCoverTitle() {
   const title = $('.cover__title');
   if (!title) return;
@@ -355,51 +358,32 @@ function enhanceCoverTitle() {
   if (!lines.length) return;
 
   let ci = 0;
-  lines.forEach((line) => {
-    const text = line.textContent;
+  const lastLine = lines.length - 1;
+  lines.forEach((line, li) => {
+    const text = (line.textContent || '').trim();
     if (!text) return;
-    const frag = document.createDocumentFragment();
-    for (const chr of text) {
-      const s = document.createElement('span');
-      s.className = 'ch';
-      s.textContent = chr;
-      s.style.setProperty('--ci', ci++);
-      frag.appendChild(s);
-    }
+    const big = li === lastLine;            /* "silence & noise." dominates */
+    const words = text.split(/\s+/);
     line.textContent = '';
-    line.appendChild(frag);
-  });
-
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (title.dataset.cursorBound) return;   /* renderAll runs twice — bind once */
-  title.dataset.cursorBound = '1';
-
-  const RADIUS = 130;   /* px influence radius around the pointer */
-  const LIFT   = 18;    /* px max upward lift at the cursor centre */
-  let pending = false, last = null;
-
-  const frame = () => {
-    pending = false;
-    if (!last) return;
-    const mx = last.clientX, my = last.clientY;
-    $$('.ch', title).forEach((ch) => {
-      const r = ch.getBoundingClientRect();
-      const d = Math.hypot(mx - (r.left + r.width / 2), my - (r.top + r.height / 2));
-      const f = d < RADIUS ? 1 - d / RADIUS : 0;
-      ch.style.transform = `translateY(${(-LIFT * f).toFixed(2)}px)`;
+    words.forEach((w, widx) => {
+      const word = document.createElement('span');
+      word.className = 'word ' + (big ? 'word--lg' : 'word--sm');
+      for (let k = 0; k < w.length; k++) {
+        const c = w[k];
+        const ch = document.createElement('span');
+        ch.className = 'ch';
+        ch.textContent = c;
+        ch.style.setProperty('--ci', ci);
+        const enter = (ci % 2 === 0 ? -1 : 1) * (10 + (ci % 4) * 5);
+        ch.style.setProperty('--enter', enter + 'deg');
+        if (c === '&') ch.classList.add('ch--amp');           /* red + 90° */
+        else if (big && widx === 0 && k === 0) ch.classList.add('hot'); /* 1 red letter */
+        word.appendChild(ch);
+        ci++;
+      }
+      line.appendChild(word);
+      if (widx < words.length - 1) line.appendChild(document.createTextNode(' '));
     });
-  };
-
-  title.addEventListener('pointermove', (e) => {
-    if (e.pointerType === 'touch') return;   /* touch: entrance anim only */
-    last = e;
-    title.classList.add('is-cursor');
-    if (!pending) { pending = true; requestAnimationFrame(frame); }
-  });
-  title.addEventListener('pointerleave', () => {
-    last = null;
-    title.classList.remove('is-cursor');
-    $$('.ch', title).forEach((ch) => { ch.style.transform = 'translateY(0)'; });
   });
 }
 
