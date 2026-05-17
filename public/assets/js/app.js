@@ -347,10 +347,10 @@ function applyStaticI18n() {
 
 /* ----- 4.5 Interactive cover title -------------------------------------- */
 /* Each line → word wrappers (so a word never splits across lines) → per
-   letter .ch spans. Letters drop in & bounce-settle (CSS @keyframes chDrop,
-   ordered by --ci); last line enlarged, rest recede; "&" lies on its side
-   in red; one extra red accent letter. Hover is pure CSS — every letter
-   reacts on its own. Re-runs safely (renderAll fires twice). */
+   letter .ch spans. Uniform white; hierarchy is scale only (first two
+   lines large, "Silence & noise." line largest, its S capitalised).
+   Letters drop in & bounce-settle (CSS chDrop, ordered by --ci). Hover is
+   pure CSS — every letter reacts on its own. Re-runs safely. */
 function enhanceCoverTitle() {
   const title = $('.cover__title');
   if (!title) return;
@@ -367,17 +367,16 @@ function enhanceCoverTitle() {
     line.textContent = '';
     words.forEach((w, widx) => {
       const word = document.createElement('span');
-      word.className = 'word ' + (big ? 'word--lg' : 'word--sm');
+      word.className = 'word ' + (big ? 'word--lg' : 'word--sub');
       for (let k = 0; k < w.length; k++) {
-        const c = w[k];
+        /* capitalise the first letter of the big line's first word */
+        const c = (big && widx === 0 && k === 0) ? w[k].toUpperCase() : w[k];
         const ch = document.createElement('span');
         ch.className = 'ch';
         ch.textContent = c;
         ch.style.setProperty('--ci', ci);
         const enter = (ci % 2 === 0 ? -1 : 1) * (10 + (ci % 4) * 5);
         ch.style.setProperty('--enter', enter + 'deg');
-        if (c === '&') ch.classList.add('ch--amp');           /* red + 90° */
-        else if (big && widx === 0 && k === 0) ch.classList.add('hot'); /* 1 red letter */
         word.appendChild(ch);
         ci++;
       }

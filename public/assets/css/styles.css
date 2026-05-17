@@ -247,62 +247,52 @@ button { font-family: inherit; }
 .cover__title {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: clamp(2.4rem, 6.5vw, 5.6rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
+  font-size: clamp(3rem, 7.4vw, 6.6rem);
+  line-height: 0.9;
+  letter-spacing: -0.025em;
   margin: 0;
   position: relative;
 }
 .cover__title-line { display: block; }
-/* unified font across all lines — no italic / weight / opacity divergence */
+/* unified font; a measured indent on the middle line gives the block an
+   editorial, slightly off-axis rhythm */
 .cover__title-line--italic {
-  padding-left: clamp(1rem, 4vw, 2.6rem);
+  padding-left: clamp(1.4rem, 5vw, 3.4rem);
 }
 
 /* WORD = layout wrapper only: keeps a word's letters together so a word is
-   never split across two lines. No transform of its own. Line wraps happen
-   only between words. */
+   never split across two lines. Line wraps happen only between words. */
 .cover__title .word {
   display: inline-block;
   white-space: nowrap;
 }
-/* size hierarchy: the "silence & noise." line dominates, the rest recede */
-.cover__title .word--lg { font-size: 1.34em; font-weight: 500; }
-.cover__title .word--sm { font-size: 0.6em;  color: var(--mute); }
+/* one unified colour (white, inherited from .cover__accent); the only
+   hierarchy is scale. First two lines are large and span the column; the
+   "silence & noise." line is the largest beat. */
+.cover__title .word--sub { font-size: 0.9em; }
+.cover__title .word--lg  { font-size: 1.16em; font-weight: 500; }
 
-/* CH = the interactive unit: each letter drops in, can lie down, reacts on
-   hover — all independent. */
+/* CH = the interactive unit: each letter drops in & reacts independently. */
 .cover__title .ch {
   display: inline-block;
   transform-origin: 50% 90%;
   will-change: transform;
-  /* rest pose (survives reduced-motion): most 0deg, "&" lies down 90deg */
-  transform: rotate(var(--rest, 0deg));
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   /* entrance: fall from above, overshoot, bounce-settle; order by --ci */
   animation: chDrop 1.05s cubic-bezier(0.18, 0.9, 0.3, 1) backwards;
   animation-delay: calc(0.2s + var(--ci, 0) * 0.045s);
 }
-/* red accents — only the ampersand + one chosen letter */
-.cover__title .ch.hot { color: #e2362b; }
-.cover__title .ch--amp {
-  color: #e2362b;
-  --rest: 90deg;            /* the ampersand lies on its side */
-}
-/* hover: lift + straighten + nudge, each letter on its own (pointer only) */
+/* hover: lift + nudge, each letter on its own (pointer only) */
 @media (hover: hover) {
-  .cover__title .ch:hover {
-    transform: translateY(-0.16em) rotate(0deg) scale(1.08);
-  }
-  .cover__title .ch--amp:hover { transform: translateY(-0.16em) rotate(0deg); }
+  .cover__title .ch:hover { transform: translateY(-0.16em) scale(1.08); }
 }
 @keyframes chDrop {
   0%   { opacity: 0; transform: translateY(-118vh) rotate(var(--enter, -16deg)); }
-  55%  { opacity: 1; transform: translateY(0) rotate(calc(var(--rest, 0deg) - 8deg)); }
-  72%  { transform: translateY(-0.3em) rotate(var(--rest, 0deg)); }
-  86%  { transform: translateY(0) rotate(var(--rest, 0deg)); }
+  55%  { opacity: 1; transform: translateY(0) rotate(-8deg); }
+  72%  { transform: translateY(-0.3em) rotate(0deg); }
+  86%  { transform: translateY(0) rotate(0deg); }
   93%  { transform: translateY(-0.1em); }
-  100% { opacity: 1; transform: translateY(0) rotate(var(--rest, 0deg)); }
+  100% { opacity: 1; transform: translateY(0) rotate(0deg); }
 }
 
 .cover__accent-foot {
