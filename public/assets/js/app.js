@@ -345,6 +345,64 @@ function applyStaticI18n() {
   $$('[data-i18n]').forEach((el) => { el.innerHTML = t(el.dataset.i18n); });
 }
 
+/* ----- 4.5 Interactive cover title -------------------------------------- */
+/* Split each title line into per-glyph spans: staggered rise on entrance,
+   and (pointer devices only) a magnetic lift as the cursor passes over. */
+function enhanceCoverTitle() {
+  const title = $('.cover__title');
+  if (!title) return;
+  const lines = $$('.cover__title-line', title);
+  if (!lines.length) return;
+
+  let ci = 0;
+  lines.forEach((line) => {
+    const text = line.textContent;
+    if (!text) return;
+    const frag = document.createDocumentFragment();
+    for (const chr of text) {
+      const s = document.createElement('span');
+      s.className = 'ch';
+      s.textContent = chr;
+      s.style.setProperty('--ci', ci++);
+      frag.appendChild(s);
+    }
+    line.textContent = '';
+    line.appendChild(frag);
+  });
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (title.dataset.cursorBound) return;   /* renderAll runs twice — bind once */
+  title.dataset.cursorBound = '1';
+
+  const RADIUS = 130;   /* px influence radius around the pointer */
+  const LIFT   = 18;    /* px max upward lift at the cursor centre */
+  let pending = false, last = null;
+
+  const frame = () => {
+    pending = false;
+    if (!last) return;
+    const mx = last.clientX, my = last.clientY;
+    $$('.ch', title).forEach((ch) => {
+      const r = ch.getBoundingClientRect();
+      const d = Math.hypot(mx - (r.left + r.width / 2), my - (r.top + r.height / 2));
+      const f = d < RADIUS ? 1 - d / RADIUS : 0;
+      ch.style.transform = `translateY(${(-LIFT * f).toFixed(2)}px)`;
+    });
+  };
+
+  title.addEventListener('pointermove', (e) => {
+    if (e.pointerType === 'touch') return;   /* touch: entrance anim only */
+    last = e;
+    title.classList.add('is-cursor');
+    if (!pending) { pending = true; requestAnimationFrame(frame); }
+  });
+  title.addEventListener('pointerleave', () => {
+    last = null;
+    title.classList.remove('is-cursor');
+    $$('.ch', title).forEach((ch) => { ch.style.transform = 'translateY(0)'; });
+  });
+}
+
 /* ----- 5. Audio click synthesis (no external file) ---------------------- */
 let audioCtx = null;
 let lastClickAt = 0;
@@ -794,6 +852,7 @@ function renderAll() {
   injectImageIntoPlaceholder($('.placeholder--cover'),    DATA.cover?.photo);
   const brandEn = $('.brand__en');
   if (brandEn) brandEn.innerHTML = (DATA.site?.brandEn || '').replace(/ /g, '&nbsp;');
+  enhanceCoverTitle();
   renderCarousel();
   renderFeaturedVideos();
   $('.about__grid').innerHTML = aboutHtml(DATA.about || {});

@@ -261,6 +261,23 @@ button { font-family: inherit; }
   opacity: 0.92;
 }
 
+/* per-character split for interactive cover title */
+.cover__title .ch {
+  display: inline-block;
+  white-space: pre;
+  will-change: transform;
+  transform: translateY(0);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  /* staggered entrance: each glyph rises + fades, ordered by --ci */
+  animation: chIn 0.62s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation-delay: calc(var(--ci, 0) * 0.028s);
+}
+.cover__title.is-cursor .ch { transition-duration: 0.42s; }
+@keyframes chIn {
+  from { opacity: 0; transform: translateY(0.6em); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .cover__accent-foot {
   display: flex;
   flex-direction: column;
@@ -798,9 +815,23 @@ button { font-family: inherit; }
 }
 
 @media (max-width: 720px) {
-  .detail { grid-template-columns: 1fr; }
-  .detail__meta { position: static; }
-  .detail__grid { grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(56px, 14vw, 100px); }
+  .detail {
+    grid-template-columns: 1fr;
+    gap: clamp(1.6rem, 6vw, 2.4rem);
+    padding: 1.4rem var(--gutter) clamp(3rem, 12vw, 5rem);
+  }
+  .detail__meta { position: static; top: auto; gap: 1rem; }
+  .detail__num { font-size: clamp(3.4rem, 18vw, 5rem); }
+  .detail__copy { max-width: none; }
+  /* single-column vertical plate stream — every image full width at its
+     real aspect-ratio. Overrides the inline 12-col span set by JS. */
+  .detail__grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: clamp(0.8rem, 3vw, 1.4rem);
+  }
+  .detail__grid .ph { grid-column: 1 / -1 !important; }
+  .detail__deco { display: none !important; }
 }
 
 /* ==========================================================================
